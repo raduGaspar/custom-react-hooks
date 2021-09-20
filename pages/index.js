@@ -3,6 +3,7 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import ToggleDemo from '../components/ToggleDemo'
 import ArrayDemo from '../components/ArrayDemo'
+import StorageDemo from '../components/StorageDemo'
 
 export default function Home () {
   return (
@@ -17,11 +18,8 @@ export default function Home () {
         <h1 className={styles.title}>Custom React Hooks</h1>
 
         <ArrayDemo />
-
-        <div>
-          <p className={styles.description}>useToggle</p>
-          <ToggleDemo />
-        </div>
+        <ToggleDemo />
+        <StorageDemo />
       </main>
     </div>
   )

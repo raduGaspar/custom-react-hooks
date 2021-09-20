@@ -1,0 +1,65 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title='Custom Hooks/useStorage' />
+
+## [useStorage](https://github.com/raduGaspar/custom-react-hooks/blob/main/src/useStorage.js)
+
+This exposes two hooks: `useLocalStorage` and `useSessionStorage` both of which return an array
+with the current state a method for setting the state and an actions objects which contains two methods
+that allow setting and removing the value from storage.
+
+Since `Storage` is a browser specific feature, these hooks will only work on the client side in browsers that
+support it and have the feature enabled. It will not execute on the backend with SSR frameworks
+like [`Next.js`](https://nextjs.org/) but will run on the client side if support exists.
+
+Browser support details for [`localStorage`](https://caniuse.com/?search=localStorage) and
+[`sessionStorage`](https://caniuse.com/?search=sessionStorage).
+
+##### Example usage:
+```jsx
+const [job, setJob, storeActions] = useLocalStorage('job', 'developer')
+const [age, setAge, ageActions] = useLocalStorage('age', 24)
+const [name, setName, nameActions] = useSessionStorage('name', 'Arnold')
+
+return (
+  <>
+    <div>
+      {job ? <p>I work as a {job}</p> : <p>I'm looking for a job</p>}
+      <button onClick={() => setJob('constructor')}>Set Job</button>
+      <button onClick={() => storeActions.remove()}>Remove Job</button>
+      <button onClick={() => storeActions.reset()}>Reset to default value</button>
+    </div>
+
+    <div>
+      {age ? <p>I'm {age} years old</p> : <p>age is not specified</p>}
+      <button onClick={() => setAge(Math.floor(Math.random() * 10) + 24)}>Set Age</button>
+      <button onClick={() => ageActions.remove()}>Remove Age</button>
+    </div>
+
+    <div>
+      <p>People call me {name} :)</p>
+      <button onClick={() => setName('Linx')}>Set Session Name</button>
+      <button onClick={() => nameActions.remove()}>Remove Session Name</button>
+    </div>
+  </>
+)
+```
+
+### Input
+
+| Parameter           | Type    | Required | Defaults     | Description                                                               |
+| ------------------- | ------- | -------- | ------------ | -------------------------------- |
+| defaultValue        | any | Optional |       | The initial (default) value of the store state |
+
+<br />
+
+### Output
+A type `array` is returned containing the following:
+
+| Parameter | Type  | Arguments | Description |
+| --------- | ----- | --------- | -------------- |
+| array[0]  | any |  | The current value of the store state |
+| array[1]  | Function |  | A function which can be used to change the store state. |
+| array[2]  | Object |  | Contains actions that can be performed on the store |
+| &nbsp;&nbsp;→&nbsp;remove | Function | | Function used to remove the "key - value" pair from the store |
+| &nbsp;&nbsp;→&nbsp;reset | Function | | Function used to reset the store back to its initial (default) value |
