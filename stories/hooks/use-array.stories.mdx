@@ -1,0 +1,62 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title='Custom Hooks/useArray' />
+
+## useArray
+
+Returns an array and some commonly occurring operations that come up during the application lifecycle.
+
+All operations are immutable and they automatically update the state of the array by internally calling `setArray`.
+
+##### Example usage:
+```jsx
+const [array, setArray, arrayMethods] = useArray([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+const { push, removeAt, filter, pushAt, updateAt, clear, reset, sliceTo, sliceFrom, sliceBetween } = arrayMethods
+
+const getRandomNumber = () => Math.floor(Math.random() * 100)
+
+return (
+  <>
+    <code>{array.join(', ')}</code>
+    <button onClick={() => push(getRandomNumber())}>Add random number 0 - 99</button>
+    <button onClick={() => pushAt(1, getRandomNumber())}>Add random number at index 1</button>
+    <button onClick={() => pushAt(0, getRandomNumber())}>Add random number at index 0</button>
+    <button onClick={() => updateAt(1, 42)}>Change second element to 42</button>
+    <button onClick={() => removeAt(1)}>Remove second element</button>
+    <button onClick={() => filter(n => n % 2 === 0)}>Keep even numbers</button>
+    <button onClick={() => setArray([1, 2, 3, 4])}>Replace array with [1, 2, 3, 4]</button>
+    <button onClick={() => reset()}>Reset to default value</button>
+    <button onClick={() => sliceTo(5)}>Slice to the 5th element</button>
+    <button onClick={() => sliceFrom(5)}>Slice from the 5th element</button>
+    <button onClick={() => sliceFrom(5, 7)}>Slice from the 5th to the 7nth element</button>
+    <button onClick={clear}>Clear</button>
+  </>
+);
+```
+
+### Input
+
+| Parameter           | Type    | Required | Defaults     | Description                                                               |
+| ------------------- | ------- | -------- | ------------ | -------------------------------- |
+| defaultValue        | Array   | Optional | []           | The initial (default) value of the array |
+
+<br />
+
+### Output
+A type `array` is returned containing the following:
+
+| Parameter | Type  | Arguments | Description |
+| --------- | ----- | --------- | -------------- |
+| array[0]  | Array |  | The actual array which holds the current state |
+| array[1]  | Function |  | Function that can be used to change the array |
+| array[2]  | Object |  | Contains actions that can be performed on the array |
+| &nbsp;&nbsp;→&nbsp;push | Function | value | Function used to push a new value to the array |
+| &nbsp;&nbsp;→&nbsp;pushAt | Function | index, value | Function used to push a new value to the array at a specific index |
+| &nbsp;&nbsp;→&nbsp;updateAt | Function | index, value | Function used to replace a existing value with a new one at a specific index |
+| &nbsp;&nbsp;→&nbsp;filter | Function | callback | Function used to filter the array |
+| &nbsp;&nbsp;→&nbsp;removeAt | Function | index | Function used to remove a value at a specific index |
+| &nbsp;&nbsp;→&nbsp;reset | Function |  | Function used to reset the array back to its initial (default) value |
+| &nbsp;&nbsp;→&nbsp;clear | Function |  | Function used to clear the array |
+| &nbsp;&nbsp;→&nbsp;sliceTo | Function | index | Function used to copy the array from 0 to the provided index |
+| &nbsp;&nbsp;→&nbsp;sliceFrom | Function | index | Function used to copy the array from the provided index to the end |
+| &nbsp;&nbsp;→&nbsp;sliceBetween | Function | from, to | Function used to copy the array "from" and "to" the provided indexes |
