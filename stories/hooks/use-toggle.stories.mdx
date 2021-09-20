@@ -1,0 +1,36 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title='Custom Hooks/useToggle' />
+
+## [useToggle](https://github.com/raduGaspar/custom-react-hooks/blob/main/src/useToggle.js)
+
+Returns an array with the current state and a toggle method.
+
+##### Example usage:
+```jsx
+const [toggle, setToggle] = useToggle(false)
+
+return (
+  <>
+    <input type={'checkbox'} onChange={setToggle} checked={toggle} />
+    <button onClick={() => setToggle(true)}>Check</button>
+    <button onClick={() => setToggle(false)}>Uncheck</button>
+  </>
+);
+```
+
+### Input
+
+| Parameter           | Type    | Required | Defaults     | Description                                                               |
+| ------------------- | ------- | -------- | ------------ | -------------------------------- |
+| defaultValue        | Boolean | Optional | false      | The initial (default) value of the toggled state |
+
+<br />
+
+### Output
+A type `array` is returned containing the following:
+
+| Parameter | Type  | Arguments | Description |
+| --------- | ----- | --------- | -------------- |
+| array[0]  | Boolean |  | The current value of the toggle state |
+| array[1]  | Function | true, false or undefined | A function which can be used to explicitly set the toggle state or to toggle the current state. |
