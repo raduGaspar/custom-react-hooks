@@ -1,0 +1,37 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title='Custom Hooks/usePrevious' />
+
+## [usePrevious](https://github.com/raduGaspar/custom-react-hooks/blob/main/src/usePrevious.js)
+
+Returns a previously stored state value.
+
+##### Example usage:
+```jsx
+const randomBingoNumber = () => Math.floor(Math.random() * 90) + 1
+
+const [bingoNum, setBingoNum] = useState(randomBingoNumber())
+const previousBingoNum = usePrevious(bingoNum)
+
+return (
+  <div>
+    <p>Current bingo number: {bingoNum}</p>
+    <p>Previous bingo number: {previousBingoNum}</p>
+    <button onClick={() => setBingoNum(randomBingoNumber())}>Set Random Bingo Number</button>
+  </div>
+)
+```
+
+### Input
+
+| Parameter           | Type    | Required | Defaults     | Description                                                               |
+| ------------------- | ------- | -------- | ------------ | -------------------------------- |
+| currentValue        | any | true | undefined      | The current value from a state to keep track of |
+
+<br />
+
+### Output
+
+| Parameter | Type  | Arguments | Description |
+| --------- | ----- | --------- | -------------- |
+| value  | any |  | The previous state value |

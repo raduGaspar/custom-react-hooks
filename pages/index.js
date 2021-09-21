@@ -4,6 +4,7 @@ import styles from '../styles/Home.module.css'
 import ToggleDemo from '../components/ToggleDemo'
 import ArrayDemo from '../components/ArrayDemo'
 import StorageDemo from '../components/StorageDemo'
+import PreviousDemo from '../components/PreviousDemo'
 
 export default function Home () {
   return (
@@ -20,6 +21,7 @@ export default function Home () {
         <ArrayDemo />
         <ToggleDemo />
         <StorageDemo />
+        <PreviousDemo />
       </main>
     </div>
   )
