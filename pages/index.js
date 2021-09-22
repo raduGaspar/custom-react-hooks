@@ -5,6 +5,7 @@ import ToggleDemo from '../components/ToggleDemo'
 import ArrayDemo from '../components/ArrayDemo'
 import StorageDemo from '../components/StorageDemo'
 import PreviousDemo from '../components/PreviousDemo'
+import OnUpdateDemo from '../components/OnUpdateDemo'
 
 export default function Home () {
   return (
@@ -22,6 +23,7 @@ export default function Home () {
         <ToggleDemo />
         <StorageDemo />
         <PreviousDemo />
+        <OnUpdateDemo />
       </main>
     </div>
   )

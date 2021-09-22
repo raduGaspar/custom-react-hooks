@@ -1,0 +1,36 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title='Custom Hooks/useOnUpdate' />
+
+## [useOnUpdate](https://github.com/raduGaspar/custom-react-hooks/blob/main/src/useOnUpdate.js)
+
+This hook is similar in behaviour to `useEffect` but it only triggers when one of its dependencies changes.
+
+It does not trigger when the component is mounted.
+
+##### Example usage:
+```jsx
+const [city, setCity] = useState('New York')
+
+useOnUpdate(() => console.log('city was updated'), [city])
+
+return (
+  <div>
+    <p>I live in {city}</p>
+    <button onClick={() => setCity('Los Angeles')}>Change City</button>
+  </div>
+)
+```
+
+### Input
+
+| Parameter           | Type    | Required | Defaults     | Description                                                               |
+| ------------------- | ------- | -------- | ------------ | -------------------------------- |
+| callback  | Function | true | undefined | Function that gets called when a dependency changes |
+| dependencies  | Array | false | undefined | Array of dependencies to watch for changes |
+
+<br />
+
+### Output
+
+This hook returns `undefined`.
