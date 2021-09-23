@@ -1,51 +1,54 @@
 .container {
-  min-height: 100vh;
   padding: 0 0.5rem;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
 }
 
 .main {
-  padding: 5rem 0;
+  padding: 1rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
-}
-
-.title,
-.description {
   text-align: center;
+  margin: 0 0 1rem 0;
+  line-height: 1.15;
+  font-size: 3rem;
 }
 
-.description {
-  line-height: 1.5;
+.hook {
+  position: relative;
+  z-index: 1;
   font-size: 1.5rem;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  border-radius: 8px 8px 0 0;
+  color: #fff;
+  background:
+    radial-gradient(black 15%, transparent 16%) 0 0,
+    radial-gradient(black 15%, transparent 16%) 8px 8px,
+    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+  background-color:#282828;
+  background-size: 16px 16px;
 }
 
-.code {
+.usage {
+  margin: 0.2rem 0 2rem 0;
   background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
+  border: 1px solid #282828;
+  padding: 1rem;
 }
 
 .grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.grid button {
+  display: block;
 }

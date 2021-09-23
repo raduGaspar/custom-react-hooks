@@ -8,10 +8,18 @@ export default function ToggleDemo () {
 
   return (
     <div>
-      <p className={styles.description}>useToggle</p>
-      <input type='checkbox' onChange={setToggle} checked={toggle} />
-      <button onClick={() => setToggle(true)}>Check</button>
-      <button onClick={() => setToggle(false)}>Uncheck</button>
+      <p className={styles.hook}>useToggle</p>
+      <div className={styles.usage}>
+        <label htmlFor='toggle-checkbox'>
+          <input id='toggle-checkbox' type='checkbox' onChange={setToggle} checked={toggle} />
+          click to toggle
+        </label>
+
+        <div className={styles.grid}>
+          <button onClick={() => setToggle(true)}>Check</button>
+          <button onClick={() => setToggle(false)}>Uncheck</button>
+        </div>
+      </div>
     </div>
   )
 }

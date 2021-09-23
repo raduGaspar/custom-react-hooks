@@ -10,9 +10,11 @@ export default function OnUpdateDemo () {
 
   return (
     <div>
-      <p className={styles.description}>useOnUpdate</p>
-      <p>I live in {city}</p>
-      <button onClick={() => setCity('Los Angeles')}>Change City</button>
+      <p className={styles.hook}>useOnUpdate</p>
+      <div className={styles.usage}>
+        <code>{`I live in ${city}`}</code>
+        <button onClick={() => setCity('Los Angeles')}>Change City</button>
+      </div>
     </div>
   )
 }

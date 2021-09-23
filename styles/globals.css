@@ -14,3 +14,38 @@ a {
 * {
   box-sizing: border-box;
 }
+
+label {
+  user-select: none;
+}
+
+code {
+  display: block;
+  margin: 1rem 0;
+  background: #eee;
+  border-radius: 5px;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+  Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+button {
+  user-select: none;
+  display: inline-block;
+  padding: 0.8em 1.2em;
+  border: 1px solid #000;
+  font-family: 'Roboto', sans-serif;
+  background: transparent;
+  outline: none;
+  font-weight: 300;
+  color: #000;
+  transition: all 0.2s;
+}
+
+button:hover {
+  color: #fff;
+  background: #000;
+  cursor: default;
+}
+

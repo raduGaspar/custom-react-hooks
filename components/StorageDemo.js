@@ -10,24 +10,33 @@ export default function StorageDemo () {
 
   return (
     <div>
-      <p className={styles.description}>useLocalStorage</p>
-      <div>
-        {job ? <p>I work as a {job}</p> : <p>I'm looking for a job</p>}
-        <button onClick={() => setJob('constructor')}>Set Job</button>
-        <button onClick={() => storeActions.remove()}>Remove Job</button>
-        <button onClick={() => storeActions.reset()}>Reset to default value</button>
-      </div>
+      <p className={styles.hook}>useLocalStorage</p>
+      <div className={styles.usage}>
+        <div>
+          <code>output: {job ? `I work as a ${job}` : 'I\'m looking for a job'}</code>
 
-      <div>
-        {age ? <p>I'm {age} years old</p> : <p>age is not specified</p>}
-        <button onClick={() => setAge(Math.floor(Math.random() * 10) + 24)}>Set Age</button>
-        <button onClick={() => ageActions.remove()}>Remove Age</button>
-      </div>
+          <div className={styles.grid}>
+            <button onClick={() => setJob('constructor')}>Set Job</button>
+            <button onClick={() => storeActions.remove()}>Remove Job</button>
+            <button onClick={() => storeActions.reset()}>Reset to default value</button>
+          </div>
+        </div>
 
-      <div>
-        <p>People call me {name} :)</p>
-        <button onClick={() => setName('Linx')}>Set Session Name</button>
-        <button onClick={() => nameActions.remove()}>Remove Session Name</button>
+        <div>
+          <code>output: {age ? `I'm ${age} years old` : 'age is not specified'}</code>
+          <div className={styles.grid}>
+            <button onClick={() => setAge(Math.floor(Math.random() * 10) + 24)}>Set Age</button>
+            <button onClick={() => ageActions.remove()}>Remove Age</button>
+          </div>
+        </div>
+
+        <div>
+          <code>output: {`People call me ${name} :)`}</code>
+          <div className={styles.grid}>
+            <button onClick={() => setName('Linx')}>Set Session Name</button>
+            <button onClick={() => nameActions.remove()}>Remove Session Name</button>
+          </div>
+        </div>
       </div>
     </div>
   )

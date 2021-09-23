@@ -11,10 +11,18 @@ export default function PreviousDemo () {
 
   return (
     <div>
-      <p className={styles.description}>usePrevious</p>
-      <p>Current bingo number: {bingoNum}</p>
-      <p>Previous bingo number: {previousBingoNum}</p>
-      <button onClick={() => setBingoNum(randomBingoNumber())}>Set Random Bingo Number</button>
+      <p className={styles.hook}>usePrevious</p>
+      <div className={styles.usage}>
+        <pre>
+          <code>
+            {`output:
+
+current  bingo number: ${bingoNum}
+previous bingo number: ${previousBingoNum}`}
+          </code>
+        </pre>
+        <button onClick={() => setBingoNum(randomBingoNumber())}>Set Random Bingo Number</button>
+      </div>
     </div>
   )
 }
