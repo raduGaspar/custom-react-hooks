@@ -10,6 +10,7 @@ export default function ToggleDemo () {
     <div>
       <p className={styles.hook}>useToggle</p>
       <div className={styles.usage}>
+        <code>checked: {toggle.toString()}</code>
         <label htmlFor='toggle-checkbox'>
           <input id='toggle-checkbox' type='checkbox' onChange={setToggle} checked={toggle} />
           click to toggle

@@ -31,7 +31,7 @@ export default function StorageDemo () {
         </div>
 
         <div>
-          <code>output: {`People call me ${name} :)`}</code>
+          <code>output: {name ? `People call me ${name} :)` : 'I am nameless 👀'}</code>
           <div className={styles.grid}>
             <button onClick={() => setName('Linx')}>Set Session Name</button>
             <button onClick={() => nameActions.remove()}>Remove Session Name</button>

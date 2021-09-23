@@ -17,6 +17,8 @@ a {
 
 label {
   user-select: none;
+  display: inline-block;
+  margin: 0.5rem 0;
 }
 
 code {
