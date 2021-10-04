@@ -7,6 +7,7 @@ import StorageDemo from '../components/StorageDemo'
 import PreviousDemo from '../components/PreviousDemo'
 import OnUpdateDemo from '../components/OnUpdateDemo'
 import TimeoutDemo from '../components/TimeoutDemo'
+import StatsDemo from '../components/StatsDemo'
 
 export default function Home () {
   return (
@@ -26,6 +27,7 @@ export default function Home () {
         <PreviousDemo />
         <OnUpdateDemo />
         <TimeoutDemo />
+        <StatsDemo />
       </main>
     </div>
   )

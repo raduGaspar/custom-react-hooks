@@ -1,0 +1,44 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title='Debug Hooks/useStats' />
+
+## [useStats](https://github.com/raduGaspar/custom-react-hooks/blob/main/src/useStats.js)
+
+Used to track the number of renders of a component and the elapsed time between renders.
+
+The stats can be viewed in the *DevTools Console* or by inspecting the returned `stats` object.
+
+This hook should be used <u>for debugging purposes only</u> **NOT in `production` mode**.
+
+##### Example usage:
+```jsx
+const [state, setState] = useState(false)
+const stats = useStats('StatsDemo')
+
+return (
+  <div>
+    <code><pre>stats: {JSON.stringify(stats, null, 2)}</pre></code>
+    <div>
+      <button onClick={() => setState(!state)}>Change State</button>
+    </div>
+  </div>
+)
+```
+
+### Input
+
+| Parameter           | Type    | Required | Defaults     | Description                                                               |
+| ------------------- | ------- | -------- | ------------ | -------------------------------- |
+| componentName | String | false | DefaultName | The name of the component that's being assessed. |
+
+<br />
+
+### Output
+A type `object` is returned containing the following:
+
+| Parameter | Type  | Description |
+| --------- | ----- | -------------- |
+| componentName  | String | The name that was passed in as the component name |
+| renders  | Number | The total number of renders that occurred |
+| updatedAt  | Timestamp | A timestamp indicating the last update |
+| lastRendered  | String | The difference in seconds between the current timestamp and the last update |
