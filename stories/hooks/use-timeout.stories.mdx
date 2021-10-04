@@ -1,0 +1,50 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title='Custom Hooks/useTimeout' />
+
+## [useTimeout](https://github.com/raduGaspar/custom-react-hooks/blob/main/src/useTimeout.js)
+
+Used to run a given callback regardless of the component render state after a specified time in `milliseconds`.
+
+##### Example usage:
+```jsx
+const [state, setState] = useState(false)
+const [isClear, clearTimeoutRef] = useTimeout(() => {
+  setState(true)
+}, 3000)
+
+return (
+  <div>
+    <code>is timeout cleared: {isClear.toString()}</code>
+    <p>Content will be displayed in 3 seconds, unless timeout is cleared 😁</p>
+    { state && <p>This took 3 seconds to display 😎</p> }
+
+    { !isClear
+      ? (
+        <div className={styles.grid}>
+          <button onClick={clearTimeoutRef}>Clear Timeout</button>
+        </div>
+      )
+      : <p>timeout is cleared</p>
+    }
+  </div>
+)
+```
+
+### Input
+
+| Parameter           | Type    | Required | Defaults     | Description                                                               |
+| ------------------- | ------- | -------- | ------------ | -------------------------------- |
+| callback | Function | true | undefined | Function to execute after the specified delay |
+| delay | Number | true | undefined | The delay expressed in milliseconds |
+| clearOnUnmount | Boolean | false | true | A boolean which specifies if the timeout should be cleared on component unmount |
+
+<br />
+
+### Output
+A type `array` is returned containing the following:
+
+| Parameter | Type  | Arguments | Description |
+| --------- | ----- | --------- | -------------- |
+| array[0]  | Boolean |  | The current timeout state (cleared or uncleared) |
+| array[1]  | Function |  | A function which can be used to clear the timeout. This action will rerender the component. |
